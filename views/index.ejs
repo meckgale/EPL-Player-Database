@@ -1,0 +1,23 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <%- include("searchPlayer.ejs") %>
+    <ul>
+      <li><a href="/names">View Players</a></li>
+    </ul>
+    <a href="/names/add">Add a Player</a>
+    <form action="/names/delete" method="GET" style="margin-top: 20px">
+      <button
+        type="submit"
+        onclick="return confirm('Are you sure you want to delete all users?');"
+      >
+        Delete All Players
+      </button>
+    </form>
+  </body>
+</html>
