@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Player</title>
+</head>
+<body>
+    <form action="/names/update/<%= player.id %>" method="POST">
+        <label for="playerName">Player Name: </label>
+        <input type="text" name="playerName" id="playerName" value="<%= player.player_name %>" required />
+      
+        <label for="playerPosition">Player Position:</label>
+        <select id="playerPosition" name="playerPosition" required>
+          <option value="Goalkeeper" <%= player.player_position === 'Goalkeeper' ? 'selected' : '' %>>Goalkeeper</option>
+          <option value="Defender" <%= player.player_position === 'Defender' ? 'selected' : '' %>>Defender</option>
+          <option value="Midfielder" <%= player.player_position === 'Midfielder' ? 'selected' : '' %>>Midfielder</option>
+          <option value="Forward" <%= player.player_position === 'Forward' ? 'selected' : '' %>>Forward</option>
+        </select>
+      
+        <label for="playerTeam">Team Name:</label>
+        <select id="playerTeam" name="playerTeam" required>
+          <option value="Arsenal" <%= player.team_name === 'Arsenal' ? 'selected' : '' %>>Arsenal</option>
+          <option value="Aston Villa" <%= player.team_name === 'Aston Villa' ? 'selected' : '' %>>Aston Villa</option>
+          <option value="Brentford" <%= player.team_name === 'Brentford' ? 'selected' : '' %>>Brentford</option>
+          <!-- Add other team options similarly -->
+          <option value="Brighton & Hove Albion" <%= player.team_name === 'Brigthon & Hove Albion' ? 'selected' : '' %>>Brigthon & Hove Albion</option>
+          <option value="Bournemouth" <%= player.team_name === 'Bournemouth' ? 'selected' : '' %>>Bournemouth</option>
+          <option value="Chelsea" <%= player.team_name === 'Chelsea' ? 'selected' : '' %>>Chelsea</option>
+          <option value="Crystal Palace" <%= player.team_name === 'Crystal Palace' ? 'selected' : '' %>>Crystal Palace</option>
+          <option value="Everton" <%= player.team_name === 'Everton' ? 'selected' : '' %>>Everton</option>
+          <option value="Fulham" <%= player.team_name === 'Fulham' ? 'selected' : '' %>>Fulham</option>
+          <option value="Ipswich Town" <%= player.team_name === 'Ipswich Town' ? 'selected' : '' %>>Ipswich Town</option>
+          <option value="Leicester City" <%= player.team_name === 'Leicester City' ? 'selected' : '' %>>Leicester City</option>
+          <option value="Liverpool" <%= player.team_name === 'Liverpool' ? 'selected' : '' %>>Liverpool</option>
+          <option value="Manchester City" <%= player.team_name === 'Manchester City' ? 'selected' : '' %>>Manchester City</option>
+          <option value="Manchester United" <%= player.team_name === 'Manchester United' ? 'selected' : '' %>>Manchester United</option>
+          <option value="Newcastle United" <%= player.team_name === 'Newcastle United' ? 'selected' : '' %>>Newcastle United</option>
+          <option value="Nottingham Forest" <%= player.team_name === 'Nottingham Forest' ? 'selected' : '' %>>Nottingham Forest</option>
+          <option value="Southampton" <%= player.team_name === 'Southampton' ? 'selected' : '' %>>Southampton</option>
+          <option value="Tottenham Hotspur" <%= player.team_name === 'Tottenham Hotspur' ? 'selected' : '' %>>Tottenham Hotspur</option>
+          <option value="West Ham United" <%= player.team_name === 'West Ham United' ? 'selected' : '' %>>West Ham United</option>
+          <option value="Wolverhampton Wanderers" <%= player.team_name === 'Wolverhampton Wanderers' ? 'selected' : '' %>>Wolverhampton Wanderers</option>
+        </select> 
+        <button type="submit">Update Player</button>
+      </form>
+</body>
+</html>

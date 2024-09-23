@@ -2,17 +2,72 @@
 <html>
   <head>
     <title><%= title %></title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+    </style>
   </head>
   <body>
     <h1><%= title %></h1>
-    <%- include("searchPlayer.ejs") %>
-    <ul>
-      <% if (players.length > 0) { %> <% players.forEach(player => { %>
-      <li>Player Name: <%= player %></li>
-      <% }); %> <% } else { %>
-      <li>No players found.</li>
+    <%- include("searchPlayer.ejs") %> <% if (players.length > 0) { %>
+    <form id="playerListForm" action="/names/deleteSelected" method="POST">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Select</th>
+            <th>Player Name</th>
+            <th>Position</th>
+            <th>Team Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% players.forEach(player => { %>
+          <tr>
+            <td>
+              <input
+                type="checkbox"
+                name="selectedPlayers"
+                value="<%= player.id %>"
+              />
+            </td>
+            <td><%= player.player_name %></td>
+            <td><%= player.player_position %></td>
+            <td><%= player.team_name %></td>
+            <td>
+              <a href="/names/view/<%= player.id %>">
+                <button type="button">View</button>
+              </a>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } else { %>
+      <p>No players found.</p>
       <% } %>
-    </ul>
+      <button
+        type="submit"
+        onclick="return confirm('Are you sure you want to delete the selected players?');"
+      >
+        Delete Selected Players
+      </button>
+    </form>
     <a href="/names/add">Add a Player</a>
     <form action="/names/delete" method="GET" style="margin-top: 20px">
       <button

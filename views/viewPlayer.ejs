@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1>Player Details</h1>
+
+    <p><strong>Player Name:</strong> <%= player.player_name %></p>
+    <p><strong>Position:</strong> <%= player.player_position %></p>
+    <p><strong>Team:</strong> <%= player.team_name %></p>
+
+    <a href="/names/update/<%= player.id %>">Update Player</a>
+    <a href="/names">Back to Player List</a>
+  </body>
+</html>
